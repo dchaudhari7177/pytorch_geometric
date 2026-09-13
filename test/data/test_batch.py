@@ -613,9 +613,10 @@ def test_torch_nested_batch():
 
 def test_batch_warns_when_first_element_lacks_a_store_type():
     # The collated object takes its schema from `data_list[0]`, so a store the
-    # first element does not carry is dropped from the batch. That used to happen
-    # in silence, and under `shuffle=True` non-deterministically, since which
-    # types survive depends on which graph lands first in a given mini-batch.
+    # first element does not carry is dropped from the batch. That used to
+    # happen in silence, and under `shuffle=True` non-deterministically, since
+    # which types survive depends on which graph lands first in a given
+    # mini-batch.
     data_1 = HeteroData()
     data_1['author'].x = torch.randn(2, 3)
 
